@@ -20,7 +20,7 @@ def test():
 @app.route('/gps')
 def gps():
     sql_query = """select time, lat, long from gps  where time >
-        {} order by time desc;""".format(time.time() - 3600)
+        {} order by time desc limit 1;""".format(time.time() - 3600)
     result = connection.execute(sql_query)
     for row in result:
         print(row)
