@@ -44,5 +44,29 @@ def insert_gps():
     result = connection.execute(sql_query)
     return "completed insert"
 
+@app.route('/acceleration')
+def acceleration():
+    sql_query = """select time, acceleration from acceleration order by time
+    desc limit 1000;"""
+    result = connection.execute(sql_query)
+    row = result.first()
+    acc_obj  = {
+                "time": row["time"],
+                "acceleration": row["acceleration"]
+           }
+    return jsonify(acc_obj)
+
+@app.route('/insert_acceleration')
+def insert_acceleration():
+    dum_acc = 50
+    dum_time = time.time()
+    sql_query = """insert into acceleration
+        (acceleration, time)
+        values ({}, {});""".format(
+            dum_acc, dum_time
+        )
+    result = connection.execute(sql_query)
+    return "completed insert"
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0") 
