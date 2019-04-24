@@ -1,5 +1,5 @@
 from flask import Flask, redirect
-from flask import request
+from flask import request, jsonify
 from flask_restful import Resource, Api, reqparse
 from flask_cors import CORS
 from sqlalchemy import create_engine
@@ -19,13 +19,17 @@ def test():
 
 @app.route('/gps')
 def gps():
-    sql_query = """select time, lat, long from gps  where time >
-        {} order by time desc limit 1;""".format(time.time() - 3600)
+    sql_query = """select time, lat, long from gps order by time desc limit 1;"""
     result = connection.execute(sql_query)
-    for row in result:
-        print(row)
-    data = None
-    return "ret"
+    row = result.first()
+    loc_obj  = {
+                "time": row["time"],
+                "loc": {
+                    "lat": row["lat"],
+                    "long": row["long"]
+                }
+           }
+    return jsonify(loc_obj)
 
 @app.route('/insert_gps')
 def insert_gps():
