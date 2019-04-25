@@ -23,10 +23,10 @@ def gps():
     result = connection.execute(sql_query)
     row = result.first()
     loc_obj  = {
-                "time": row["time"],
+                "time": float(row["time"]),
                 "loc": {
-                    "lat": row["lat"],
-                    "long": row["long"]
+                    "lat": float(row["lat"]),
+                    "long": float(row["long"])
                 }
            }
     return jsonify(loc_obj)
@@ -51,8 +51,8 @@ def acceleration():
     result = connection.execute(sql_query)
     row = result.first()
     acc_obj  = {
-                "time": row["time"],
-                "acceleration": row["acceleration"]
+                "time": float(row["time"]),
+                "acceleration": float(row["acceleration"])
            }
     return jsonify(acc_obj)
 
