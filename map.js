@@ -19,7 +19,7 @@ function updatePosition(lat, long) {
         var marker = new google.maps.Marker({
           position: myLatLng,
           map: map,
-          title: 'Backpack is Here!'
+          title: 'Tracker is Here!'
         });
 }
 
