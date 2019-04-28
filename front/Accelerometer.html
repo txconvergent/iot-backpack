@@ -1,32 +1,26 @@
 <html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src = "accelerometer.js"></script>
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Force', 'Limit'],
-          ['2004',  120,      1000],
-          ['2005',  1130,      1000],
-          ['2006',  660,       1000],
-          ['2007',  1030,      1000]
-        ]);
-
-        var options = {
-          title: 'Accelerometer Data',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-      }
+      
     </script>
+    <link rel="stylesheet" type="text/css" href="Map.css">
+    <link rel="stylesheet" type="text/css" href="accelerometer.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
   </head>
   <body>
+    <div class="row">        
+      <ul>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="Accelerometer.html">Accelerometer Data</a></li>
+        <li><button class="btn" id="refreshButton" onClick="getHttpAcceleration()"><i class="fa fa-refresh fa-spin"></i></button></li>
+        <div style="text-align: right"><img class="logo" src="icon.png"></div> 
+      </ul>
+    </div>
     <div id="curve_chart" style="width: 900px; height: 500px"></div>
   </body>
 </html>

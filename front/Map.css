@@ -1,43 +1,25 @@
 /* Always set the map height explicitly to define the size of the div
 * element that contains the map. */
 #map {
-height: 50%;
-width: 50%;
-margin-top: 100px;
-}
-#mapContainer {
-height: 50%;
-width: 50%;
-}
-/* Optional: Makes the sample page fill the window. */
-html, body {
-height: 50%;
-margin: 0;
-padding: 0;
+height: 100%;
+width: 100%;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* Change the link color to #111 (black) on hover */
-  li a:hover {
-    background-color: #111;
-  }
+#mapContainer {
+height: 100%;
+width: 100%;
+}
+
+.logo {
+  display: inline-block;
+  vertical-align: top;
+  width: 50px;
+  height: 25px;
+  margin-right: 14px;
+  margin-top:  10px;    /* if you want it vertically middle of the navbar. */
+}
+
+
+/* Optional: Makes the sample page fill the window. */
+
   

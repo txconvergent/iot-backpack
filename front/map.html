@@ -5,23 +5,25 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <style>
-
     </style>
     <link rel="stylesheet" type="text/css" href="Map.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
-    <div class="row">
-      <ul>
-          <li><a href="default.asp">Home</a></li>
-          <li><a href="news.asp">News</a></li>
-          <li><a href="contact.asp">Contact</a></li>
-          <li><a href="about.asp">About</a></li>
+    <div class="row">        
+        <ul>
+          <li><a href="map.html">Map</a></li>
+          <li><a href="Accelerometer.html">Accelerometer Data</a></li>
+          <li><button class="btn" onClick="getPosition()"><i class="fa fa-refresh fa-spin"></i></button></li>
+          <div style="text-align: right"><img class="logo" src="icon.png"></div> 
         </ul>
     </div>
      <div class="row" id="mapContainer">
     <div id="map"></div>
     </div>
-    <button onclick="getPosition()">Update Position</button>
+    
     <script src="map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkWRU7hC-swYlpZCWO99WwXLuxFm3cT9A&callback=initMap"
     async defer></script>
