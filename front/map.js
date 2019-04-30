@@ -48,4 +48,4 @@ function getPosition() {
 //    updatePosition(lat, long)
 }
 
-gpsUrl = "https://api.budgetfor.space/missions"
+gpsUrl = "http://s19-iot.appspot.com/gps"

@@ -2,12 +2,12 @@
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
-    var data = google.visualization.arrayToDataTable([
+     var data = google.visualization.arrayToDataTable([
       ['Year', 'Force', 'Limit'],
-      [100,  120,      1000],
-      [101,  1130,      1000],
-      [150,  660,       1000],
-      [1000,  1030,      1000]
+      [0,  0, 0],
+      [0,  0, 0],
+      [0, 0, 0],
+      [0, 0, 0]
     ]);
 
     var options = {
@@ -29,10 +29,13 @@ function updateChart(newData) {
 
   // clean up the raw new data to add to the table
   cleanData = []
-  for(timeAcc in newData) {
+  for(var i = 0 ; i < newData.length; i++) {
+    timeAcc = newData[i]
     time = timeAcc["time"]
     force = timeAcc["acceleration"]
-    cleanData.push([new Date(time), force])
+    date = new Date(time * 1000)
+    console.log(time + " " + new Date(time))
+    cleanData.push([date, force])
   }
   data.addRows(cleanData)
 
@@ -53,4 +56,4 @@ function getHttpAcceleration() {
   })
 }
 
-gpsUrl = "https://api.budgetfor.space/missions"
+gpsUrl = "http://s19-iot.appspot.com/acceleration_hour"
